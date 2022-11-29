@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
+    <Folder Include="Views\Gebruiker\" />
+    <Folder Include="Views\Admin\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
