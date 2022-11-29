@@ -1,13 +1,10 @@
-﻿using System.Collections;
+﻿using McLaren_Cardealer.Models;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
-namespace McLaren_Cardealer.Models
-
+namespace McLaren_Cardealer.ViewModels
 {
-    public class Auto
+    public class AutoDetailViewModel
     {
-        [Key]
         public int AutoId { get; set; }
         public string Naam { get; set; }
         public int Prijs { get; set; }
@@ -16,6 +13,5 @@ namespace McLaren_Cardealer.Models
         public string Foto { get; set; }
         public ICollection<Motor> Motoren { get; set; }
         public ICollection<Wielen> Wielen { get; set; }
-
     }
 }

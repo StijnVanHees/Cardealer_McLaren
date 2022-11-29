@@ -12,5 +12,6 @@ namespace McLaren_Cardealer.Models
         public string Configuratie { get; set; }
         [DataType(DataType.Date)]
         public DateTime ProductieJaar { get; set; }
+        public Auto Auto { get; set; }  
     }
 }

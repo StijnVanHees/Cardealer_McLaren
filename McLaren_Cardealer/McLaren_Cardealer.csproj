@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Gebruiker\" />
     <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Factuur\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
