@@ -1,10 +1,13 @@
-﻿namespace McLaren_Cardealer.Models
+﻿using System.Collections.Generic;
+
+namespace McLaren_Cardealer.Models
 {
     public class Wielen
     {
         public int WielenId { get; set; }
         public string Naam { get; set; }
         public string Kleur { get; set; }
-        public Auto Auto { get; set; }
+        public ICollection<Auto> Autos { get; set; }
+        public string AutoId { get; set; }
     }
 }
