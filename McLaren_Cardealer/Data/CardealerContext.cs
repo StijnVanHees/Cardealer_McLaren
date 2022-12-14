@@ -1,24 +1,33 @@
 ﻿using McLaren_Cardealer.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace McLaren_Cardealer.Data
 {
-    public class CardealerContext : DbContext
+    public class CardealerContext : IdentityDbContext<IdentityUser>
     {
 
         public DbSet<Auto> Autos { get; set; }
+        public DbSet<AutoMotor> AutoMotors { get; set; }
         public DbSet<Factuur> Facturen { get; set; }
-        public DbSet<Klant> Klanten { get; set; }
+        //public DbSet<Klant> Klanten { get; set; }
         public DbSet<Motor> Motoren { get; set; }
         public DbSet<Wielen> Wielen { get; set; }
 
+        public CardealerContext(DbContextOptions<CardealerContext> options) : base(options)
+        {
+
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Auto>().ToTable("Auto");
-            modelBuilder.Entity<AutoMotor>().ToTable("AutoMotor");
-            modelBuilder.Entity<Factuur>().ToTable("Factuur");
-            modelBuilder.Entity<Klant>().ToTable("Klant");
-            modelBuilder.Entity<Motor>().ToTable("Motor");
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Auto>().ToTable("Autos");
+            modelBuilder.Entity<AutoMotor>().ToTable("AutoMotors");
+            modelBuilder.Entity<Factuur>().ToTable("Facturen");
+            //modelBuilder.Entity<Klant>().ToTable("Klanten");
+            modelBuilder.Entity<Motor>().ToTable("Motoren");
             modelBuilder.Entity<Wielen>().ToTable("Wielen");
 
             

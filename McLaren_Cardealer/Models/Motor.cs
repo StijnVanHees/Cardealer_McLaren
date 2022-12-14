@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace McLaren_Cardealer.Models
@@ -15,6 +17,6 @@ namespace McLaren_Cardealer.Models
         public string Configuratie { get; set; }
         [DataType(DataType.Date)]
         public DateTime ProductieJaar { get; set; }
-        public AutoMotor AutoMotor { get; set; }  
+        public ICollection<AutoMotor> AutoMotors { get; set; }  
     }
 }

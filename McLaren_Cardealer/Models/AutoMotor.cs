@@ -7,8 +7,8 @@ namespace McLaren_Cardealer.Models
         [Key]
         public string AutoMotorId { get; set; }
         public Auto Auto { get; set; }
-        public string AutoId { get; set; }
+        public int AutoId { get; set; }
         public Motor Motor { get; set; }
-        public string MotorId { get; set; }
+        public int MotorId { get; set; }
     }
 }

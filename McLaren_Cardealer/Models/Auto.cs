@@ -23,7 +23,7 @@ namespace McLaren_Cardealer.Models
 
         public ICollection<Factuur> Facturen { get; set; }
         public Wielen Wielen { get; set; }
-        public string WielenId { get; set; }
+        public int WielenId { get; set; }
 
     }
 }

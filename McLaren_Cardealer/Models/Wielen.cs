@@ -8,6 +8,5 @@ namespace McLaren_Cardealer.Models
         public string Naam { get; set; }
         public string Kleur { get; set; }
         public ICollection<Auto> Autos { get; set; }
-        public string AutoId { get; set; }
     }
 }
