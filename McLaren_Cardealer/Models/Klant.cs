@@ -12,6 +12,7 @@ namespace McLaren_Cardealer.Models
         public string Naam { get; set; }
         [Required]
         public string Voornaam { get; set; }
+        [Required]
         public string Gemeente { get; set; }
         [Required]
         public string Rekeningnummer { get; set; }

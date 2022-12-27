@@ -1,0 +1,25 @@
+﻿@model McLaren_Cardealer.ViewModels.WinkelViewModel;
+@{
+    ViewData["Title"] = "Shop your car!";
+}
+
+<h1 class="custom-title">@ViewData["Title"]</h1>
+
+<div class="custom-title">
+    @foreach (var auto in Model.Autos)
+    {
+        <div class="card m-2" style="width: 18rem; height: 32rem; float: left;">
+            <img src="~/images/@auto.Foto" class="card-img-top" alt="@auto.Foto" style="height: 18rem; width: auto;">
+            <div class="card-body bg-primary">
+                <h5 class="card-title" style="color: white;">@auto.Naam</h5>
+                <p class="card-text">€ @auto.Prijs</p>
+            </div>
+            <div class="card-footer bg-primary">
+                <a asp-controller="winkel" asp-action="details" asp-route-id="@auto.AutoId" class="btn btn-light">Details</a>
+            </div>
+        </div>
+    }
+</div>
+
+
+<div style="clear: both;" />

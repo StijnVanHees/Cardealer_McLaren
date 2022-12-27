@@ -5,7 +5,7 @@ namespace McLaren_Cardealer.Models
     public class AutoMotor
     {
         [Key]
-        public string AutoMotorId { get; set; }
+        public int AutoMotorId { get; set; }
         public Auto Auto { get; set; }
         public int AutoId { get; set; }
         public Motor Motor { get; set; }

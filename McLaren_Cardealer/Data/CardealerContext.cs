@@ -11,7 +11,7 @@ namespace McLaren_Cardealer.Data
         public DbSet<Auto> Autos { get; set; }
         public DbSet<AutoMotor> AutoMotors { get; set; }
         public DbSet<Factuur> Facturen { get; set; }
-        //public DbSet<Klant> Klanten { get; set; }
+        public DbSet<Klant> Klanten { get; set; }
         public DbSet<Motor> Motoren { get; set; }
         public DbSet<Wielen> Wielen { get; set; }
 
@@ -26,11 +26,10 @@ namespace McLaren_Cardealer.Data
             modelBuilder.Entity<Auto>().ToTable("Autos");
             modelBuilder.Entity<AutoMotor>().ToTable("AutoMotors");
             modelBuilder.Entity<Factuur>().ToTable("Facturen");
-            //modelBuilder.Entity<Klant>().ToTable("Klanten");
+            modelBuilder.Entity<Klant>().ToTable("Klanten");
             modelBuilder.Entity<Motor>().ToTable("Motoren");
             modelBuilder.Entity<Wielen>().ToTable("Wielen");
-
-            
+  
             modelBuilder.Entity<AutoMotor>()
                 .HasOne(p => p.Auto)
                 .WithMany(x => x.autoMotors)

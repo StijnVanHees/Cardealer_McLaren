@@ -4,14 +4,16 @@ using McLaren_Cardealer.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace McLaren_Cardealer.Migrations
 {
     [DbContext(typeof(CardealerContext))]
-    partial class CardealerContextModelSnapshot : ModelSnapshot
+    [Migration("20221215094516_KlantToevoegen")]
+    partial class KlantToevoegen
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

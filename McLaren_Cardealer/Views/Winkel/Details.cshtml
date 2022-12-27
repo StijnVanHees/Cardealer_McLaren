@@ -1,0 +1,87 @@
+﻿@model McLaren_Cardealer.ViewModels.WinkelDetailViewModel
+@{
+    ViewData["Title"] = @Model.Naam;
+}
+
+<div class="row">
+    <div class="col m-5">
+        <img src="~/images/@Model.Foto" class="card-img-top" alt="@Model.Foto" style="height: 18rem; width: auto;">
+    </div>
+    <div class="col m-5">
+        <h1 style="color: black !important;">@ViewData["Title"]</h1>
+        <h3 style="color: black !important;">Buy it now for € @Model.Prijs!</h3>
+        <div class="accordion" id="accordionCarDetails">
+            <div class="card">
+                <div class="card-header" id="headingCarDetails">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseCarInfo" aria-expanded="false" aria-controls="collapseCarInfo">
+                            Car info
+                        </button>
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div id="collapseCarInfo" class="collapse show" aria-labelledby="headingCarInfo" data-parent="#accordionCarDetails">
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Official name</td>
+                        <td>@Model.Naam</td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td>€ @Model.Prijs</td>
+                    </tr>
+                    <tr>
+                        <td>Weight</td>
+                        <td>@Model.Kilogram kg</td>
+                    </tr>
+                    <tr>
+                        <td>Color</td>
+                        <td>@Model.Kleur</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+        <div class="accordion" id="accordionEngineDetails">
+            <div class="card">
+                <div class="card-header" id="headingEngineDetails">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEngineInfo" aria-expanded="false" aria-controls="collapseEngineInfo">
+                            Engine info
+                        </button>
+                    </h2>
+                </div>
+
+                    <div id="collapseEngineInfo" class="collapse show" aria-labelledby="headingEngineInfo" data-parent="#accordionEngineDetails">
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td>CodeName</td>
+                                    <td>@Model.CodeNaam</td>
+                                </tr>
+                                <tr>
+                                    <td>PK</td>
+                                    <td>@Model.PK PK</td>
+                                </tr>
+                                <tr>
+                                    <td>Torque</td>
+                                    <td>@Model.Torque N m
+                                </tr>
+                                <tr>
+                                    <td>Configuratie</td>
+                                    <td>@Model.Configuratie</td>
+                                </tr>
+                                <tr>
+                                    <td>Productiejaar</td>
+                                    <td>@Model.ProductieJaar</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                   
+            </div>
+        </div>
+    </div>
+</div>
