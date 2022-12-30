@@ -1,4 +1,5 @@
-@inject SignInManager<IdentityUser> SignInManager
+@using McLaren_Cardealer.Areas.Identity.Data
+@inject SignInManager<CustomUser> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }

@@ -24,22 +24,21 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Winkel" asp-action="Index">Our store</a>
-                        </li>
-                        @if (this.User.Identity.IsAuthenticated)
-                        {
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Admin </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" asp-controller="Admin" asp-action="Donuts">Donuts</a>
-                                    <a class="dropdown-item" asp-controller="Gebruiker" asp-action="Index">Gebruikers</a>
-                                    <a class="dropdown-item" asp-controller="Admin" asp-action="Orders">Orders</a>
-                                </div>
-
-                            </li>
-                        }
-                        <partial name="_LoginPartial">
+                        </li>   
+                                @if (this.User.Identity.IsAuthenticated)
+                                {
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Admin </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" asp-controller="Admin" asp-action="Autos">Cars</a>
+                                            <a class="dropdown-item" asp-controller="Admin" asp-action="Orders">Orders</a>
+                                            <a class="dropdown-item" asp-controller="Admin" asp-action="Orders">Messages</a>
+                                            <a class="dropdown-item" asp-controller="Gebruiker" asp-action="Index">Users</a>
+                                        </div>
+                                    </li>
+                                }
+                        <partial name="_LoginPartial"> 
                     </ul>
-
                 </div>
             </div>
         </nav>

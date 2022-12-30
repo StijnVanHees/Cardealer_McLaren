@@ -1,3 +1,4 @@
+using McLaren_Cardealer.Areas.Identity.Data;
 using McLaren_Cardealer.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,7 +29,9 @@ namespace McLaren_Cardealer
         {
             services.AddControllersWithViews();
             services.AddDbContext <CardealerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LocalDBConnection")));
-            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<CardealerContext>();
+            services.AddDefaultIdentity<CustomUser>()
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<CardealerContext>();
             services.AddRazorPages();
 
             services.Configure<IdentityOptions>(options =>

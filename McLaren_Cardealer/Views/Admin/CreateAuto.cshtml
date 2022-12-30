@@ -1,0 +1,76 @@
+﻿@model McLaren_Cardealer.ViewModels.CreateAutoViewModel
+
+@{
+    ViewData["Title"] = "Create Car";
+}
+
+
+<h1 class="mt-5">@ViewData["Title"]</h1>
+
+
+<form asp-action="CreateAuto" method="post">
+    <div class="row mt-5">
+        <div asp-validation-summary="ModelOnly" class="text-danger" />
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Naam" class="control-label">@Html.DisplayNameFor(model => this.Model.Naam)</label>
+                <input asp-for="Naam" class="form-control" />
+                <span asp-validation-for="Naam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prijs" class="control-label">@Html.DisplayNameFor(model => this.Model.Prijs)</label>
+                <input asp-for="Prijs" class="form-control" />
+                <span asp-validation-for="Prijs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kilogram" class="control-label">@Html.DisplayNameFor(model => this.Model.Kilogram)</label>
+                <input asp-for="Kilogram" class="form-control" />
+                <span asp-validation-for="Kilogram" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kleur" class="control-label">@Html.DisplayNameFor(model => this.Model.Kleur)</label>
+                <input asp-for="Kleur" class="form-control" />
+                <span asp-validation-for="Kleur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Foto" class="control-label">@Html.DisplayNameFor(model => this.Model.Foto)</label>
+                <input asp-for="Foto" class="form-control" />
+                <span asp-validation-for="Foto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CodeNaam" class="control-label">@Html.DisplayNameFor(model => this.Model.CodeNaam)</label>
+                <input asp-for="CodeNaam" class="form-control" />
+                <span asp-validation-for="CodeNaam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PK" class="control-label">@Html.DisplayNameFor(model => this.Model.PK)</label>
+                <input asp-for="PK" class="form-control" />
+                <span asp-validation-for="PK" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Torque" class="control-label">@Html.DisplayNameFor(model => this.Model.Torque)</label>
+                <input asp-for="Torque" class="form-control" />
+                <span asp-validation-for="Torque" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Configuratie" class="control-label">@Html.DisplayNameFor(model => this.Model.Configuratie)</label>
+                <input asp-for="Configuratie" class="form-control" />
+                <span asp-validation-for="Configuratie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductieJaar" class="control-label">@Html.DisplayNameFor(model => this.Model.ProductieJaar)</label>
+                <input asp-for="ProductieJaar" class="form-control" />
+                <span asp-validation-for="ProductieJaar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn" style="background-color: black !important; color: white !important;" />
+                <a asp-action="Autos" class="btn" style="background-color: black !important; color: white !important;">Back</a>
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

@@ -1,0 +1,40 @@
+﻿@model McLaren_Cardealer.ViewModels.AutoOverviewViewModel;
+@{
+    ViewData["Title"] = "Cars - Admin";
+}
+<h1 class="mt-5">@ViewData["Title"]</h1>
+
+<form class="mt-5" asp-action="CreateAuto" method="get">
+    <div class="form-group">
+        <input type="submit" value="Create new car" class="btn" style="background-color: black !important; color: white !important;" />
+    </div>
+</form>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Autos[0].AutoId)</th>
+        <th>@Html.DisplayNameFor(model => model.Autos[0].Naam)</th>
+        <th>@Html.DisplayNameFor(model => model.Autos[0].Prijs)</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (var auto in Model.Autos)
+    {
+        <tr>
+            <td>@auto.AutoId</td>
+            <td>@auto.Naam</td>
+            <td>€ @auto.Prijs</td>
+            <td><a class="button" asp-action="AutoDetails" asp-route-id="@auto.AutoId">Details</a></td>
+            <td><a class="button" asp-action="EditAuto" asp-route-id="@auto.AutoId">Edit</a></td>
+            @if (this.User.Identity.IsAuthenticated)
+            {
+                <td><a class="button" asp-action="DeleteAuto" asp-route-id="@auto.AutoId">Delete</a></td>
+                @*@if (User.IsInRole("admin"))
+                {
+                    <td><a class="button" asp-action="DeleteDonut" asp-route-id="@auto.AutoId">Verwijderen</a></td>
+                }*@
+            }
+        </tr>
+    }
+    </table>

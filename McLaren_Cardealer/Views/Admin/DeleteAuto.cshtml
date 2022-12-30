@@ -1,0 +1,57 @@
+﻿@model McLaren_Cardealer.ViewModels.DeleteAutoViewModel
+@{
+    ViewData["Title"] = @Model.Naam;
+}
+
+<h1 class="mt-5">Are you sure you want to delete the '@ViewData["Title"]'?</h1>
+
+<table class="table table-bordered table-striped mt-5">
+    <tr>
+        <td>@Html.DisplayNameFor(model => this.Model.AutoId)</td>
+        <td>@this.Model.AutoId</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => this.Model.Naam)</td>
+        <td>@this.Model.Naam</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => this.Model.Prijs)</td>
+        <td>@this.Model.Prijs</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => this.Model.Kilogram)</td>
+        <td>@this.Model.Kilogram</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => this.Model.Kleur)</td>
+        <td>@this.Model.Kleur</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => this.Model.CodeNaam)</td>
+        <td>@this.Model.CodeNaam</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => this.Model.PK)</td>
+        <td>@this.Model.PK</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => this.Model.Torque)</td>
+        <td>@this.Model.Torque</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => this.Model.Configuratie)</td>
+        <td>@this.Model.Configuratie</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => this.Model.ProductieJaar)</td>
+        <td>@this.Model.ProductieJaar</td>
+    </tr>
+</table>
+
+
+<form class="mt-5" asp-action="DeleteAuto">
+    <div class="form-group">
+        <input type="submit" value="Delete" class="btn" style="background-color: black !important; color: white !important;" />
+        <a asp-action="Donuts" class="btn" style="background-color: black !important; color: white !important;">Back</a>
+    </div>
+</form>

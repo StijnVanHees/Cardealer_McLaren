@@ -1,0 +1,51 @@
+﻿@model McLaren_Cardealer.ViewModels.AutoDetailsViewModel
+@{
+    ViewData["Title"] = @Model.Naam;
+}
+
+<h1 class="mt-5">@ViewData["Title"]</h1>
+
+<table class="table table-bordered table-striped mt-5">
+    <tr>
+        <td>@Html.DisplayNameFor(model => this.Model.AutoId)</td>
+        <td>@this.Model.AutoId</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => this.Model.Naam)</td>
+        <td>@this.Model.Naam</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => this.Model.Prijs)</td>
+        <td>€ @this.Model.Prijs</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => this.Model.Kilogram)</td>
+        <td>@this.Model.Kilogram</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => this.Model.Kleur)</td>
+        <td>@this.Model.Kleur</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => this.Model.CodeNaam)</td>
+        <td>@this.Model.CodeNaam</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => this.Model.PK)</td>
+        <td>@this.Model.PK PK</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => this.Model.Torque)</td>
+        <td>@this.Model.Torque n m</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => this.Model.Configuratie)</td>
+        <td>@this.Model.Configuratie</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => this.Model.ProductieJaar)</td>
+        <td>@this.Model.ProductieJaar</td>
+    </tr>
+</table>
+
+<a asp-action="Autos" class="btn" style="background-color: black !important; color: white !important;">Back</a>
