@@ -5,10 +5,10 @@
 
 <h1 class="custom-title">@ViewData["Title"]</h1>
 
-<div class="custom-title">
+<div class=" align-items-center col-md-11">
     @foreach (var auto in Model.Autos)
     {
-        <div class="card m-2" style="width: 18rem; height: 32rem; float: left;">
+        <div class="card m-2" style="width: 18rem; height: 32rem; float: right;">
             <img src="~/images/@auto.Foto" class="card-img-top" alt="@auto.Foto" style="height: 18rem; width: auto;">
             <div class="card-body bg-primary">
                 <h5 class="card-title" style="color: white;">@auto.Naam</h5>

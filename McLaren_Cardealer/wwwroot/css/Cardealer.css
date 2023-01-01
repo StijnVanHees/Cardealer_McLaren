@@ -12,6 +12,11 @@ a.nav-link {
     text-align:center;
 }
 
+.customDeleteButton{
+    background-color:black;
+    color:white;
+}
+
 /* Tekstkleur van navbar brand/tekst wit maken */
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-text {

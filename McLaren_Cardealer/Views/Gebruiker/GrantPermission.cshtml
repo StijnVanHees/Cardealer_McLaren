@@ -7,12 +7,12 @@
 <form asp-action="GrantPermission" asp-method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group">
-        <select asp-for="GebruikerId" asp-items="Model.Gebruikers"></select>
+        <select asp-for="GebruikerId" asp-items="Model.Gebruikers"></select>   
     </div>
     <div class="form-group">
         <select asp-for="RolId" asp-items="Model.Rollen"></select>
     </div>
     <div class="form-group">
         <input type="submit" value="Create" class="btn btn-primary" />
-    </div>  
+    </div>
 </form>

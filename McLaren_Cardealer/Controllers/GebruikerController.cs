@@ -88,15 +88,17 @@ namespace McLaren_Cardealer.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CreateGebruikerViewModel viewModel)
         {
-            if (!ModelState.IsValid)
-            {
+            if (ModelState.IsValid)
+            { 
                 CustomUser gebruiker = new CustomUser
                 {
                     Naam = viewModel.Naam,
-                    Email = viewModel.Email
+                    Email = viewModel.Email,
+                    UserName = viewModel.Naam
                 };
 
                 IdentityResult result = await _userManager.CreateAsync(gebruiker, viewModel.Password);
+
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index");
@@ -113,8 +115,26 @@ namespace McLaren_Cardealer.Controllers
             return View(viewModel);
         }
 
-        [HttpPost]
         public async Task<IActionResult> Delete(string id)
+        {
+            CustomUser user = await _userManager.FindByIdAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            GebruikerDeleteViewModel viewModel = new GebruikerDeleteViewModel()
+            {
+                GebruikerId = id,
+                Naam = user.Naam
+            };
+            return View(viewModel);
+        }
+
+        [HttpPost,ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(string id)
         {
             CustomUser user = await _userManager.FindByIdAsync(id);
             if (user != null)
@@ -139,17 +159,17 @@ namespace McLaren_Cardealer.Controllers
             return View("Index", _userManager.Users.ToList());
         }
 
-
         public IActionResult GrantPermission()
         {
             GrantPermissionViewModel viewModel = new GrantPermissionViewModel()
             {
-                Gebruikers = new SelectList(_userManager.Users.ToList(), "id", "UserName"),
+                Gebruikers = new SelectList(_userManager.Users.ToList(), "Id", "UserName"),
                 Rollen = new SelectList(_roleManager.Roles.ToList(), "Id", "Name")
             };
             return View(viewModel);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> GrantPermission(GrantPermissionViewModel viewModel)
         {
             if (ModelState.IsValid)

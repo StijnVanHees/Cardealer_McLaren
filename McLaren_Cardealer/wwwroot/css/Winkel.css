@@ -1,0 +1,19 @@
+﻿body {
+}
+
+.CustomText{
+    font-size:medium
+}
+
+.flex-container {
+    display: flex;
+    text-align:center;
+}
+
+.flex-child {
+    flex: 1;
+
+}
+.flex-child:first-child {
+    margin-right: 20px;
+} 

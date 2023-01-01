@@ -2,6 +2,7 @@
 using McLaren_Cardealer.Models;
 using McLaren_Cardealer.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -91,6 +92,92 @@ namespace McLaren_Cardealer.Controllers
             }
             return View(viewModel);
         }
+
+        [HttpGet]
+        public IActionResult EditAuto(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            Auto auto = _context.Autos.Where(x => x.AutoId == id).FirstOrDefault();
+            Motor motor = _context.Motoren.Where(y => y.MotorId == id).FirstOrDefault();
+
+            if (auto == null || motor == null)
+            {
+                return NotFound();
+            }
+
+            EditAutoViewModel eavm = new EditAutoViewModel()
+            {
+                AutoId = auto.AutoId,
+                Naam = auto.Naam,
+                Prijs = auto.Prijs,
+                Kilogram = auto.Kilogram,
+                Kleur=auto.Kleur,
+                Foto=auto.Foto,
+                CodeNaam = motor.CodeNaam,
+                PK = motor.PK,
+                ProductieJaar = motor.ProductieJaar,
+                Torque = motor.Torque,
+                Configuratie = motor.Configuratie
+
+            };
+            return View(eavm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditAuto(int id, EditAutoViewModel eavm)
+        {
+            if (id != eavm.AutoId)
+            {
+                return NotFound();
+            }
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    Auto auto = new Auto()
+                    {
+                        AutoId = eavm.AutoId,
+                        Naam = eavm.Naam,
+                        Prijs = eavm.Prijs,
+                        Kilogram = eavm.Kilogram,
+                        Kleur = eavm.Kleur,
+                        Foto = eavm.Foto             
+                    };
+                    Motor motor = new Motor()
+                    {
+                        CodeNaam = eavm.CodeNaam,
+                        PK = eavm.PK,
+                        ProductieJaar = eavm.ProductieJaar,
+                        Torque = eavm.Torque,
+                        Configuratie = eavm.Configuratie
+                    };
+                    _context.Update(auto);
+                    _context.Update(motor);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException e)
+                {
+
+                    if (!_context.Autos.Any(d => d.AutoId == eavm.AutoId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Autos));
+            }
+            return View(eavm);
+        }
+
+
+
         [HttpGet]
         public IActionResult DeleteAuto(int id)
         {
