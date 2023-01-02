@@ -1,0 +1,32 @@
+﻿@model McLaren_Cardealer.ViewModels.OrderOverviewViewModel
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<h1 class="mt-5">@ViewData["Title"]</h1>
+
+
+    @foreach (var order in Model.facturen)
+    {
+    <table class="table table-bordered mt-5">
+        <tr>
+            <td>Car</td>
+            @foreach (var auto in Model.autos)
+            {
+                if (order.AutoId == auto.AutoId)
+                {
+                    <td>@auto.Naam</td>
+                }
+            }
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>@order.Email</td>
+        </tr>
+        <tr>
+            <td>Reservation number</td>
+            <td>@order.reservationnumber</td>
+        </tr>
+    </table>
+    }
+

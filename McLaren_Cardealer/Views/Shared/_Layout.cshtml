@@ -25,14 +25,14 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Home" asp-action="Info">About Us</a>
                         </li>   
-                                @if (this.User.Identity.IsAuthenticated)
+                                @if (User.IsInRole("admin"))
                                 {
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Admin </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" asp-controller="Admin" asp-action="Autos">Cars</a>
                                             <a class="dropdown-item" asp-controller="Admin" asp-action="Orders">Orders</a>
-                                            <a class="dropdown-item" asp-controller="Admin" asp-action="Orders">Messages</a>
+                                            <a class="dropdown-item" asp-controller="Admin" asp-action="Berichten">Messages</a>
                                             <a class="dropdown-item" asp-controller="Gebruiker" asp-action="Index">Users</a>
                                         </div>
                                     </li>

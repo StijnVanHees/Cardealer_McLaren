@@ -7,9 +7,12 @@ namespace McLaren_Cardealer.Models
         [Key]
         public int FactuurId { get; set; }
         public Auto Auto { get; set; }
-        public int AutoId { get; set; }  
-        public Klant Klant { get; set; }
-        public int KlantId { get; set; }
+        [Required]
+        public int AutoId { get; set; }
+        [Required]
+        public string Email { get; set; }
+        [Required]
+        public int reservationnumber { get; set; }
 
     }
 }

@@ -58,7 +58,7 @@ namespace McLaren_Cardealer
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -85,6 +85,30 @@ namespace McLaren_Cardealer
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
+            CreateRoles(serviceProvider).Wait();
         }
+
+        private async Task CreateRoles(IServiceProvider serviceProvider)
+        {
+            RoleManager<IdentityRole> rolemanager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            CardealerContext context = serviceProvider.GetRequiredService<CardealerContext>();
+
+            IdentityResult result;
+
+            bool roleCheck = await rolemanager.RoleExistsAsync("user");
+            if (!roleCheck)
+            {
+                result = await rolemanager.CreateAsync(new IdentityRole("user"));
+            }
+
+            roleCheck = await rolemanager.RoleExistsAsync("admin");
+            if (!roleCheck)
+            {
+                result = await rolemanager.CreateAsync(new IdentityRole("admin"));
+            }
+
+            context.SaveChanges();
+        } 
     }
 }

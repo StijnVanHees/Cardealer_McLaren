@@ -1,0 +1,38 @@
+﻿@model McLaren_Cardealer.ViewModels.PurchaseAutoViewModel
+
+@{
+    ViewData["Title"] = @Model.Naam;
+}
+
+<h1 class="mt-5">Are you sure you want to reserve the '@ViewData["Title"]' for @Model.Prijs?</h1>
+
+
+
+<form asp-action="PurchaseAutoConfirmed" method="post">
+    <div class="row mt-5">
+        <div asp-validation-summary="ModelOnly" class="text-danger" />
+        <h3>To make sure you are not a robot. Fill in the Id of the car and your email.</h3>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="email" class="control-label">Email</label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AutoId" class="control-label">Id</label>
+                <input asp-for="AutoId" class="form-control" />
+                <span asp-validation-for="AutoId" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <input type="submit" value="Yes" class="btn" style="background-color: black !important; color: white !important;" />
+                <a asp-action="Autos" class="btn" style="background-color: black !important; color: white !important;">No</a>
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

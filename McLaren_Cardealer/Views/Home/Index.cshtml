@@ -1,4 +1,4 @@
-﻿@model McLaren_Cardealer.ViewModels.WinkelViewModel;
+﻿@model McLaren_Cardealer.ViewModels.HomeViewModel;
 @{
     ViewData["Title"] = "Winkel";
 }
@@ -10,4 +10,51 @@
 
 <div class="text-black-50 text-center col-md-12">
     <h2>Multiple brand new cars in stock.</h2>
+    <div class="CustomFoto">
+        <div class="column">
+            <img src="~/images/speedtail.jpg" alt="speedtail" style="width:100%" />
+        </div>
+        <div class="column">
+            <img src="~/images/765lt.jpg" alt="765LT" style="width:100%" />
+        </div>
+        <div class="column">
+            <img src="~/images/P1.jpg" alt="P1" style="width:100%" />
+        </div>
+    </div>
 </div>
+
+
+
+<div class="mt-5">
+    <h3>Everyone can send us a message!</h3>
+    <div class="col-md-12 flex-container">
+        <form asp-action="CreateBericht" method="post">
+            <div class="row mt-3">
+                <div asp-validation-summary="ModelOnly" class="text-danger" />
+                <div class="col-md-4">
+                    <div class="form-group flex-child">
+                        <label asp-for="Email" class="control-label">Email (optional)</label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group flex-child">
+                        <label asp-for="Message" class="control-label">@Html.DisplayNameFor(model => this.Model.Message)</label>
+                        <input asp-for="Message" class="form-control" />
+                        <span asp-validation-for="Message" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Send message" class="btn" style="background-color: black !important; color: white !important;" />
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

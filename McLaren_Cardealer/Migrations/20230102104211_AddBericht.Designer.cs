@@ -4,14 +4,16 @@ using McLaren_Cardealer.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace McLaren_Cardealer.Migrations
 {
     [DbContext(typeof(CardealerContext))]
-    partial class CardealerContextModelSnapshot : ModelSnapshot
+    [Migration("20230102104211_AddBericht")]
+    partial class AddBericht
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -152,7 +154,7 @@ namespace McLaren_Cardealer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Email")
+                    b.Property<string>("GebruikersNaam")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Message")
@@ -173,13 +175,6 @@ namespace McLaren_Cardealer.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AutoId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("reservationnumber")
                         .HasColumnType("int");
 
                     b.HasKey("FactuurId");

@@ -12,9 +12,9 @@ namespace McLaren_Cardealer.Data
         public DbSet<Auto> Autos { get; set; }
         public DbSet<AutoMotor> AutoMotors { get; set; }
         public DbSet<Factuur> Facturen { get; set; }
-        public DbSet<Klant> Klanten { get; set; }
         public DbSet<Motor> Motoren { get; set; }
         public DbSet<Wielen> Wielen { get; set; }
+        public DbSet<Bericht> Berichten { get; set; }
 
         public CardealerContext(DbContextOptions<CardealerContext> options) : base(options)
         {
@@ -27,7 +27,7 @@ namespace McLaren_Cardealer.Data
             modelBuilder.Entity<Auto>().ToTable("Autos");
             modelBuilder.Entity<AutoMotor>().ToTable("AutoMotors");
             modelBuilder.Entity<Factuur>().ToTable("Facturen");
-            modelBuilder.Entity<Klant>().ToTable("Klanten");
+            modelBuilder.Entity<Bericht>().ToTable("Berichten");
             modelBuilder.Entity<Motor>().ToTable("Motoren");
             modelBuilder.Entity<Wielen>().ToTable("Wielen");
   
@@ -55,11 +55,6 @@ namespace McLaren_Cardealer.Data
                 .HasForeignKey(p => p.AutoId)
                 .IsRequired();
 
-            modelBuilder.Entity<Factuur>()
-                .HasOne(p => p.Klant)
-                .WithMany(x => x.Facturen)
-                .HasForeignKey(p => p.KlantId)
-                .IsRequired();
         }
 
 

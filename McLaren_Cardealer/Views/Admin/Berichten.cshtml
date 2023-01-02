@@ -1,0 +1,21 @@
+﻿@model McLaren_Cardealer.ViewModels.BerichtListViewModel
+@{
+    ViewData["Title"] = "Messages";
+}
+
+<h1 class="mt-5">@ViewData["Title"]</h1>
+
+<table class="table table-bordered table-striped mt-5">
+        @foreach (var bericht in Model.Berichten )
+        {
+            <tr>
+                <td>Email</td>
+                <td>@bericht.Email</td>
+            </tr>
+            <tr>
+                <td>Message</td>
+                <td>@bericht.Message</td>
+            </tr>
+        }
+</table>
+

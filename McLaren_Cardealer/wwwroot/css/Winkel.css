@@ -16,4 +16,18 @@
 }
 .flex-child:first-child {
     margin-right: 20px;
-} 
+}
+
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.CustomFoto::after {
+    content: "";
+    clear: both;
+    display: table;
+}

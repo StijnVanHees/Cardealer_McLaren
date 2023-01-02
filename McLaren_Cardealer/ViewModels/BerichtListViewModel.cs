@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace McLaren_Cardealer.ViewModels
 {
-    public class KlantListViewModel
+    public class BerichtListViewModel
     {
-        public List<Klant> Klanten { get; set; }
+        public List<Bericht> Berichten { get; set; }
     }
 }

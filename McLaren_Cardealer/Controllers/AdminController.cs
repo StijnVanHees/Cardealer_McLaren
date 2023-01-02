@@ -26,6 +26,15 @@ namespace McLaren_Cardealer.Controllers
             return View(avm);
         }
 
+        public  IActionResult Berichten()
+        {
+            BerichtListViewModel blvm = new BerichtListViewModel()
+            {
+                Berichten = _context.Berichten.ToList()
+            };
+            return View(blvm);
+        }
+
         public IActionResult AutoDetails(int id)
         {
             Auto auto = _context.Autos.Where(d => d.AutoId == id).FirstOrDefault();
@@ -91,6 +100,17 @@ namespace McLaren_Cardealer.Controllers
                 return RedirectToAction(nameof(Autos));
             }
             return View(viewModel);
+        }
+
+        public IActionResult Orders()
+        {
+            OrderOverviewViewModel oovm = new OrderOverviewViewModel()
+            {
+                facturen = _context.Facturen.ToList(),
+                autos = _context.Autos.ToList()
+                
+            };
+            return View(oovm);
         }
 
         [HttpGet]
