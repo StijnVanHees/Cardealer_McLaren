@@ -22,17 +22,9 @@ namespace McLaren_Cardealer.Migrations
                 name: "FK_Factuur_Auto_AutoId",
                 table: "Factuur");
 
-            migrationBuilder.DropForeignKey(
-                name: "FK_Factuur_Klant_KlantId",
-                table: "Factuur");
-
             migrationBuilder.DropPrimaryKey(
                 name: "PK_Motor",
                 table: "Motor");
-
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Klant",
-                table: "Klant");
 
             migrationBuilder.DropPrimaryKey(
                 name: "PK_Factuur",
@@ -51,10 +43,6 @@ namespace McLaren_Cardealer.Migrations
                 newName: "Motoren");
 
             migrationBuilder.RenameTable(
-                name: "Klant",
-                newName: "Klanten");
-
-            migrationBuilder.RenameTable(
                 name: "Factuur",
                 newName: "Facturen");
 
@@ -65,11 +53,6 @@ namespace McLaren_Cardealer.Migrations
             migrationBuilder.RenameTable(
                 name: "Auto",
                 newName: "Autos");
-
-            migrationBuilder.RenameIndex(
-                name: "IX_Factuur_KlantId",
-                table: "Facturen",
-                newName: "IX_Facturen_KlantId");
 
             migrationBuilder.RenameIndex(
                 name: "IX_Factuur_AutoId",
@@ -95,11 +78,6 @@ namespace McLaren_Cardealer.Migrations
                 name: "PK_Motoren",
                 table: "Motoren",
                 column: "MotorId");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Klanten",
-                table: "Klanten",
-                column: "KlantId");
 
             migrationBuilder.AddPrimaryKey(
                 name: "PK_Facturen",
@@ -147,14 +125,6 @@ namespace McLaren_Cardealer.Migrations
                 principalTable: "Autos",
                 principalColumn: "AutoId",
                 onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Facturen_Klanten_KlantId",
-                table: "Facturen",
-                column: "KlantId",
-                principalTable: "Klanten",
-                principalColumn: "KlantId",
-                onDelete: ReferentialAction.Cascade);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -175,17 +145,9 @@ namespace McLaren_Cardealer.Migrations
                 name: "FK_Facturen_Autos_AutoId",
                 table: "Facturen");
 
-            migrationBuilder.DropForeignKey(
-                name: "FK_Facturen_Klanten_KlantId",
-                table: "Facturen");
-
             migrationBuilder.DropPrimaryKey(
                 name: "PK_Motoren",
                 table: "Motoren");
-
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Klanten",
-                table: "Klanten");
 
             migrationBuilder.DropPrimaryKey(
                 name: "PK_Facturen",
@@ -204,10 +166,6 @@ namespace McLaren_Cardealer.Migrations
                 newName: "Motor");
 
             migrationBuilder.RenameTable(
-                name: "Klanten",
-                newName: "Klant");
-
-            migrationBuilder.RenameTable(
                 name: "Facturen",
                 newName: "Factuur");
 
@@ -218,11 +176,6 @@ namespace McLaren_Cardealer.Migrations
             migrationBuilder.RenameTable(
                 name: "AutoMotors",
                 newName: "AutoMotor");
-
-            migrationBuilder.RenameIndex(
-                name: "IX_Facturen_KlantId",
-                table: "Factuur",
-                newName: "IX_Factuur_KlantId");
 
             migrationBuilder.RenameIndex(
                 name: "IX_Facturen_AutoId",
@@ -248,11 +201,6 @@ namespace McLaren_Cardealer.Migrations
                 name: "PK_Motor",
                 table: "Motor",
                 column: "MotorId");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Klant",
-                table: "Klant",
-                column: "KlantId");
 
             migrationBuilder.AddPrimaryKey(
                 name: "PK_Factuur",
@@ -301,13 +249,6 @@ namespace McLaren_Cardealer.Migrations
                 principalColumn: "AutoId",
                 onDelete: ReferentialAction.Cascade);
 
-            migrationBuilder.AddForeignKey(
-                name: "FK_Factuur_Klant_KlantId",
-                table: "Factuur",
-                column: "KlantId",
-                principalTable: "Klant",
-                principalColumn: "KlantId",
-                onDelete: ReferentialAction.Cascade);
         }
     }
 }

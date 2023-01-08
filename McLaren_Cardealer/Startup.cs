@@ -28,7 +28,7 @@ namespace McLaren_Cardealer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext <CardealerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LocalDBConnection")));
+            services.AddDbContext <CardealerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CardealerConnection")));
             services.AddDefaultIdentity<CustomUser>()
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<CardealerContext>();

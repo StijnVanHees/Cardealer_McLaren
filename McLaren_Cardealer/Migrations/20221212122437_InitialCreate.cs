@@ -47,22 +47,6 @@ namespace McLaren_Cardealer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Klant",
-                columns: table => new
-                {
-                    KlantId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Naam = table.Column<string>(maxLength: 50, nullable: false),
-                    Voornaam = table.Column<string>(nullable: false),
-                    Gemeente = table.Column<string>(nullable: true),
-                    Rekeningnummer = table.Column<string>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Klant", x => x.KlantId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Motor",
                 columns: table => new
                 {
@@ -254,8 +238,7 @@ namespace McLaren_Cardealer.Migrations
                 {
                     FactuurId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AutoId = table.Column<int>(nullable: false),
-                    KlantId = table.Column<int>(nullable: false)
+                    AutoId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -265,12 +248,6 @@ namespace McLaren_Cardealer.Migrations
                         column: x => x.AutoId,
                         principalTable: "Auto",
                         principalColumn: "AutoId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Factuur_Klant_KlantId",
-                        column: x => x.KlantId,
-                        principalTable: "Klant",
-                        principalColumn: "KlantId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -332,11 +309,6 @@ namespace McLaren_Cardealer.Migrations
                 name: "IX_Factuur_AutoId",
                 table: "Factuur",
                 column: "AutoId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Factuur_KlantId",
-                table: "Factuur",
-                column: "KlantId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -373,9 +345,6 @@ namespace McLaren_Cardealer.Migrations
 
             migrationBuilder.DropTable(
                 name: "Auto");
-
-            migrationBuilder.DropTable(
-                name: "Klant");
 
             migrationBuilder.DropTable(
                 name: "Wielen");

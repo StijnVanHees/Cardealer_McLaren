@@ -2,7 +2,7 @@
 
 namespace McLaren_Cardealer.Migrations
 {
-    public partial class Test1 : Migration
+    public partial class DeleteKlant : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
